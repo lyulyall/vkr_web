@@ -74,7 +74,7 @@ class TableDBHelper {
         );
         $keys_id = $this->createHLDB($langs, 'SymptomHistory', 'symptom_history');
         if ($keys_id) {
-            $this->addSymptomAnalyzeHLDBfields($keys_id);
+            $this->addSymptomAnalyseHLDBfields($keys_id);
         }
     }
     
@@ -108,14 +108,14 @@ class TableDBHelper {
             return false;
         }
         else {
-            $this->addIbSkinAnalyze();
+            $this->addIbSkinAnalyse();
             $db->commitTransaction();
         }
 
         return true;
     }
 
-    public function addIbSkinAnalyze(): bool {
+    public function addIbSkinAnalyse(): bool {
 		$ib = new CIBlock();
 		$fields = array(
 			'VERSION' => 2,
@@ -137,7 +137,7 @@ class TableDBHelper {
 		return true;
 	}
 
-    private function addSymptomAnalyzeHLDBfields(int $id): void {
+    private function addSymptomAnalyseHLDBfields(int $id): void {
         $UFObject = 'HLBLOCK_'.$id;
 
         $fields = $this->getHLDBfield($UFObject, 'UF_RESPONSE', 'string', '50', 'Ответ нейросети', 'Ответ нейросети');

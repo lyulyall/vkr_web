@@ -1,5 +1,5 @@
-/* skin-analyze.css */
-.skinAnalyze {
+/* skin-Analyse.css */
+.skinAnalyse {
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 30px auto auto auto;
@@ -7,11 +7,11 @@
     line-height: 1.6;
 }
 
-.skinAnalyze .form-group {
+.skinAnalyse .form-group {
     margin: 25px 0;
 }
 
-.skinAnalyze input[type="file"] {
+.skinAnalyse input[type="file"] {
     padding: 12px;
     border: 2px dashed #ddd;
     border-radius: 8px;
@@ -20,11 +20,11 @@
     transition: border-color 0.3s;
 }
 
-.skinAnalyze input[type="file"]:hover {
+.skinAnalyse input[type="file"]:hover {
     border-color: #4CAF50;
 }
 
-.skinAnalyze .analyze-btn {
+.skinAnalyse .Analyse-btn {
     background: #4CAF50;
     color: white;
     padding: 14px 28px;
@@ -37,20 +37,20 @@
     display: inline-block;
 }
 
-.skinAnalyze .analyze-btn:hover {
+.skinAnalyse .Analyse-btn:hover {
     background: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
-.skinAnalyze .analyze-btn:disabled {
+.skinAnalyse .Analyse-btn:disabled {
     background: #cccccc;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-.skinAnalyze .result {
+.skinAnalyse .result {
     margin: 25px 0;
     padding: 20px;
     border-radius: 8px;
@@ -63,19 +63,19 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.skinAnalyze .success {
+.skinAnalyse .success {
     background: #d4edda;
     border-color: #c3e6cb;
     color: #155724;
 }
 
-.skinAnalyze .error {
+.skinAnalyse .error {
     background: #f8d7da;
     border-color: #f5c6cb;
     color: #721c24;
 }
 
-.skinAnalyze .prediction {
+.skinAnalyse .prediction {
     margin: 12px 0;
     padding: 15px;
     background: white;
@@ -84,17 +84,17 @@
     transition: transform 0.3s;
 }
 
-.skinAnalyze .prediction:hover {
+.skinAnalyse .prediction:hover {
     transform: translateX(5px);
 }
 
-.skinAnalyze h1 {
+.skinAnalyse h1 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.skinAnalyze .info {
+.skinAnalyse .info {
     background: #e7f3ff;
     padding: 20px;
     border-radius: 8px;
@@ -103,13 +103,13 @@
     line-height: 1.8;
 }
 
-.skinAnalyze .info strong {
+.skinAnalyse .info strong {
     color: #2196F3;
     color: #2196F3;
     font-size: 1.1em;
 }
 
-.skinAnalyze .disclaimer {
+.skinAnalyse .disclaimer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 2px solid #eee;
@@ -118,17 +118,17 @@
     line-height: 1.6;
 }
 
-.skinAnalyze .disclaimer strong {
+.skinAnalyse .disclaimer strong {
     color: #ff9800;
 }
 
-.skinAnalyze .loading {
+.skinAnalyse .loading {
     text-align: center;
     padding: 40px;
     color: #666;
 }
 
-.skinAnalyze .spinner {
+.skinAnalyse .spinner {
     border: 4px solid #f3f3f3;
     border-top: 4px solid #3498db;
     border-radius: 50%;
@@ -145,15 +145,15 @@
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .skinAnalyze {
+    .skinAnalyse {
         padding: 15px;
     }
 
-    .skinAnalyze .info {
+    .skinAnalyse .info {
         padding: 15px;
     }
 
-    .skinAnalyze .analyze-btn {
+    .skinAnalyse .Analyse-btn {
         width: 100%;
         padding: 16px;
     }

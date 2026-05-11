@@ -9,9 +9,11 @@ require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.
 use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
-use med\custom\controller\SymptomAnalyseController;
-use med\custom\repository\SymptomAnalyseRepository;
-use med\custom\service\SymptomAnalyzeService;
+use med\custom\controller\SkinAnalyseController;
+use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
+use med\custom\repository\SkinAnalyseRepository;
+use med\custom\service\SkinAnalyseService
+;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -45,7 +47,7 @@ try {
 		throw new Exception('Пользователь не авторизован');
 	}
 
-	foreach (['highloadblock', 'med.appointment'] as $module) {
+	foreach (['iblock', 'med.appointment'] as $module) {
 		if (!Loader::includeModule($module)) {
 			throw new Exception('Не удалось подключить модуль ' . $module);
 		}
@@ -56,9 +58,10 @@ try {
 	$action = $request->getQuery('action')
 		?: $request->getPost('action');
 
-	$controller = new SymptomAnalyseController(
-		new SymptomAnalyzeService(
-			new SymptomAnalyseRepository()
+	$controller = new SkinAnalyseController(
+		new SkinAnalyseService(
+			new SkinAnalyseRepository(),
+			new AiDiagnosticHelper()
 		)
 	);
 
@@ -68,29 +71,34 @@ try {
 			exit;
 
 
-		case 'symptom_analysis':
-			$symptoms = trim((string) $request->getPost('symptoms'));
+		case 'skin_analysis':
+			$file = $request->getFile('photo');
 
-			if ($symptoms === '') {
+			if (empty($file)) {
 				sendJson([
 					'success' => false,
-					'error' => 'Не переданы симптомы',
+					'error' => 'Не передан файл',
 				], 400);
 			}
 
-			echo $controller->analyzeSymptoms($symptoms);
+			echo $controller->AnalyseSkin(
+				$file
+			);
 
 			exit;
 
 
-		case 'save_symptom_history':
-			$symptoms = trim((string) $request->getPost('symptoms'));
-			$responseJson = trim((string) $request->getPost('response'));
+		case 'save_skin_history':
+			$file = $request->getFile('photo');
+
+			$responseJson = trim(
+				(string) $request->getPost('response')
+			);
 
 			$id = $controller->saveRequestInHistory(
 				(int) $USER->GetID(),
-				$symptoms,
-				$responseJson
+				$file,
+				$responseData = Json::decode($responseJson)
 			);
 
 			sendJson([

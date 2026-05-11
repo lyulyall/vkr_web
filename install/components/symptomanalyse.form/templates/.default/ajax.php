@@ -10,8 +10,9 @@ use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
 use med\custom\controller\SymptomAnalyseController;
+use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
 use med\custom\repository\SymptomAnalyseRepository;
-use med\custom\service\SymptomAnalyzeService;
+use med\custom\service\SymptomAnalyseService;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -80,8 +81,9 @@ try {
 
 
 	$controller = new SymptomAnalyseController(
-		new SymptomAnalyzeService(
-			new SymptomAnalyseRepository()
+		new SymptomAnalyseService(
+			new SymptomAnalyseRepository(),
+			new AiDiagnosticHelper()
 		)
 	);
 
@@ -122,7 +124,7 @@ try {
 				], 400);
 			}
 
-			echo $controller->analyzeSymptoms(
+			echo $controller->AnalyseSymptoms(
 				$symptoms
 			);
 

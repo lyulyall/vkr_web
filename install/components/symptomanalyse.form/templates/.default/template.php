@@ -15,7 +15,7 @@ $userAuthorized = $arParams['USER_AUTHORIZED'];
 $disabled = !$userAuthorized ? 'disabled' : '';
 ?>
 
-<div class="symptomAnalyze container mb-5 mt-5">
+<div class="symptomAnalyse container mb-5 mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-sm">
@@ -30,7 +30,7 @@ $disabled = !$userAuthorized ? 'disabled' : '';
                         - Срочность обращения
                     </div>
 
-                    <form id="symptomAnalyzeForm" class="mb-5">
+                    <form id="symptomAnalyseForm" class="mb-5">
                         <div class="mb-10">
                             <label for="symptomsInput" class="form-label fw-bold">
                                 Опишите симптомы
@@ -48,7 +48,7 @@ $disabled = !$userAuthorized ? 'disabled' : '';
                             </div>
                         </div>
 
-                        <div id="symptomAnalyzeStatus" class="mb-3"></div>
+                        <div id="symptomAnalyseStatus" class="mb-3"></div>
 
                         <div class="form-check checkbox-box">
                             <input type="checkbox" class="form-check-input personal-data-read" name="personal-data-read" value="checked" required>
@@ -67,7 +67,7 @@ $disabled = !$userAuthorized ? 'disabled' : '';
                                 </a>
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-10" id="symptomAnalyzeBtn" <?=$disabled?>>
+                        <button type="submit" class="btn btn-primary mt-10" id="symptomAnalyseBtn" <?=$disabled?>>
                             Проанализировать симптомы
                         </button>
                     </form>

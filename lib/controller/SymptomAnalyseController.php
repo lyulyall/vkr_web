@@ -3,19 +3,19 @@
 namespace med\custom\controller;
 
 
-use med\custom\service\SymptomAnalyzeService;
+use med\custom\service\SymptomAnalyseService;
 
 
 class SymptomAnalyseController {
-	public function __construct(protected SymptomAnalyzeService $service) {
+	public function __construct(protected SymptomAnalyseService $service) {
 	}
 
 	public function checkServer(): string {
 		return $this->service->checkServer();
 	}
 
-	public function analyzeSymptoms(string $symptoms): string {
-		return $this->service->analyzeSymptoms($symptoms);
+	public function AnalyseSymptoms(string $symptoms): string {
+		return $this->service->AnalyseSymptoms($symptoms);
 	}
 
 

@@ -8,17 +8,24 @@ use med\custom\service\SkinAnalyseService;
 
 
 class SkinAnalyseController {
-	public function __construct(protected SkinAnalyseService $service) { }
+	public function __construct(protected SkinAnalyseService $service) {
+	}
 
-	/**
-	 * @throws Exception
-	 */
-	public function add(int $userId, array $file, array $responseData): int {
-		return $this->service->add(
-			$userId,
-			$file,
-			$responseData
+	public function checkServer(): string {
+		return $this->service->checkServer();
+	}
+
+	public function AnalyseSkin(array $file): string {
+		return $this->service->AnalyseSkin(
+			$file
 		);
 	}
 
+	public function saveRequestInHistory(int $userId, array $file, string $responseJson): int {
+		return $this->service->add(
+			$userId,
+			$file,
+			$responseJson
+		);
+	}
 }

@@ -1,4 +1,4 @@
-.symptomAnalyze {
+.symptomAnalyse {
     font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 30px auto auto auto;
@@ -6,11 +6,11 @@
     line-height: 1.6;
 }
 
-.symptomAnalyze .form-group {
+.symptomAnalyse .form-group {
     margin: 25px 0;
 }
 
-.symptomAnalyze .info {
+.symptomAnalyse .info {
     background: #e7f3ff;
     padding: 20px;
     border-radius: 8px;
@@ -19,7 +19,7 @@
     line-height: 1.8;
 }
 
-.symptomAnalyze .info strong {
+.symptomAnalyse .info strong {
     color: #2196F3;
     font-size: 1.1em;
 }
@@ -28,7 +28,7 @@
     margin-top: 32px;
 }
 
-#symptomAnalyzeBtn {
+#symptomAnalyseBtn {
     margin-top: 20px;
 }
 

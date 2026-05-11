@@ -14,7 +14,7 @@ $userAuthorized = $arParams['USER_AUTHORIZED'];
 $disabled = !$userAuthorized ? 'disabled' : '';
 ?>
 
-<div class="skinAnalyze mt-10">
+<div class="skinAnalyse mt-10">
     <h1>🔬 Анализ кожных заболеваний</h1>
 
     <div class="info">
@@ -24,7 +24,7 @@ $disabled = !$userAuthorized ? 'disabled' : '';
         3. Получите вероятный диагноз с указанием уверенности
     </div>
 
-    <form id="skinAnalyzeForm" enctype="multipart/form-data">
+    <form id="skinAnalyseForm" enctype="multipart/form-data">
         <?= bitrix_sessid_post() ?>
 
         <div class="form-group mb-10">
@@ -84,10 +84,10 @@ $disabled = !$userAuthorized ? 'disabled' : '';
             </div>
         </div>
 
-        <div id="skinAnalyzeStatus" class="mb-3"></div>
+        <div id="skinAnalyseStatus" class="mb-3"></div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="analyzeBtn" <?= $disabled ?>>
+            <button type="submit" class="btn btn-primary" id="AnalyseBtn" <?= $disabled ?>>
                 Анализировать фото
             </button>
         </div>

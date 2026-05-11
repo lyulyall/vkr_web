@@ -2,11 +2,9 @@
 
 namespace med\custom\integration\AiDiagnostic;
 
-
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Web\Json;
 use Exception;
-
 
 class AiDiagnosticHelper {
 	protected string $serverUrl;
@@ -29,7 +27,7 @@ class AiDiagnosticHelper {
 		);
 	}
 
-	public function analyzeSymptoms(string $symptoms): string {
+	public function AnalyseSymptoms(string $symptoms): string {
 		$payload = Json::encode([
 			'symptoms' => $symptoms,
 		], JSON_UNESCAPED_UNICODE);
@@ -44,7 +42,20 @@ class AiDiagnosticHelper {
 		);
 	}
 
-	protected function sendRequest(string $url, ?string $payload = null, ?array $headers = null): string {
+	public function AnalyseSkin(array $file): string {
+		return $this->sendRequest(
+			$this->serverUrl . '/upload',
+			[
+				'photo' => new \CURLFile(
+					$file['tmp_name'],
+					$file['type'],
+					$file['name']
+				),
+			]
+		);
+	}
+
+	protected function sendRequest(string $url, string|array|null $payload = null, ?array $headers = null): string {
 		$ch = curl_init();
 
 		$options = [

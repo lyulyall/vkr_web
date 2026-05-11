@@ -3,8 +3,10 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Web\Uri;
-use med\custom\entity\symptomHistory\SymptomHistoryRepository;
-use med\custom\entity\symptomHistory\SymptomHistoryService;
+use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
+use med\custom\repository\SymptomAnalyseRepository;
+use med\custom\service\SymptomAnalyseService;
+
 
 defined('B_PROLOG_INCLUDED') || die;
 
@@ -19,10 +21,10 @@ class SymptomHistoryComponent extends CBitrixComponent {
 		}
 	}
 
-	protected function getService(): SymptomHistoryService {
-		$repository = new SymptomHistoryRepository();
+	protected function getService(): SymptomAnalyseService {
+		$repository = new SymptomAnalyseRepository();
 
-		return new SymptomHistoryService($repository);
+		return new SymptomAnalyseService($repository, new AiDiagnosticHelper());
 	}
 
 	protected function getPageSize() {

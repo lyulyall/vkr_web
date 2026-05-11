@@ -2,24 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const AJAX_URL = BX.message('SKIN_HISTORY_AJAX_URL');
 
 
-    const form = document.getElementById('skinAnalyzeForm');
+    const form = document.getElementById('skinAnalyseForm');
     const fileInput = document.getElementById('photoInput');
-    const analyzeBtn = document.getElementById('analyzeBtn');
+    const AnalyseBtn = document.getElementById('AnalyseBtn');
     const resultDiv = document.getElementById('result');
-    const statusBlock = document.getElementById('skinAnalyzeStatus');
+    const statusBlock = document.getElementById('skinAnalyseStatus');
 
-    if (!form || !analyzeBtn || !statusBlock) {
+    if (!form || !AnalyseBtn || !statusBlock) {
         return;
     }
 
-    const authBlocked = analyzeBtn.disabled;
+    const authBlocked = AnalyseBtn.disabled;
 
     let serverAvailable = false;
     let isLoading = false;
 
-    function updateAnalyzeButtonState() {
-        analyzeBtn.disabled = authBlocked || !serverAvailable || isLoading;
-        analyzeBtn.textContent = isLoading ? 'Обработка...' : 'Анализировать фото';
+    function updateAnalyseButtonState() {
+        AnalyseBtn.disabled = authBlocked || !serverAvailable || isLoading;
+        AnalyseBtn.textContent = isLoading ? 'Обработка...' : 'Анализировать фото';
     }
 
     function renderStatusMessage() {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return result;
     }
 
-    async function analyzePhoto() {
+    async function AnalysePhoto() {
         if (authBlocked) {
             resultDiv.innerHTML = `
                 <div class="result error">
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         isLoading = true;
-        updateAnalyzeButtonState();
+        updateAnalyseButtonState();
 
         resultDiv.innerHTML = '<div style="text-align: center; padding: 30px;">⏳ Обработка изображения...</div>';
 
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
         } finally {
             isLoading = false;
-            updateAnalyzeButtonState();
+            updateAnalyseButtonState();
         }
     }
 
@@ -230,12 +230,12 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        await analyzePhoto();
+        await AnalysePhoto();
     });
 
     window.addEventListener('load', async function () {
         serverAvailable = await checkServer();
-        updateAnalyzeButtonState();
+        updateAnalyseButtonState();
         renderStatusMessage();
     });
 });

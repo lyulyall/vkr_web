@@ -3,8 +3,10 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Web\Uri;
-use med\custom\entity\skinHistory\SkinHistoryRepository;
-use med\custom\entity\skinHistory\SkinHistoryService;
+use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
+use med\custom\repository\SkinAnalyseRepository;
+use med\custom\service\SkinAnalyseService;
+
 
 defined('B_PROLOG_INCLUDED') || die;
 
@@ -19,16 +21,16 @@ class SkinanalyseHistoryComponent extends CBitrixComponent {
 		}
 	}
 
-	protected function getService(): SkinHistoryService {
+	protected function getService(): SkinAnalyseService {
 		$iblockId = (int)$this->arParams['IBLOCK_ID'];
 
 		if ($iblockId <= 0) {
 			throw new Exception('Не задан параметр IBLOCK_ID');
 		}
 
-		$repository = new SkinHistoryRepository($iblockId);
+		$repository = new SkinAnalyseRepository($iblockId);
 
-		return new SkinHistoryService($repository);
+		return new SkinAnalyseService($repository, new AiDiagnosticHelper());
 	}
 
 	protected function getPageSize() {

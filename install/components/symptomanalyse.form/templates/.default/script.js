@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('symptomAnalyzeForm');
+    const form = document.getElementById('symptomAnalyseForm');
     const symptomsInput = document.getElementById('symptomsInput');
     const resultBlock = document.getElementById('symptomResult');
-    const submitBtn = document.getElementById('symptomAnalyzeBtn');
-    const statusBlock = document.getElementById('symptomAnalyzeStatus');
+    const submitBtn = document.getElementById('symptomAnalyseBtn');
+    const statusBlock = document.getElementById('symptomAnalyseStatus');
 
     const PROXY_URL = 'https://nir--crt-guzenko.ivb24.ru/local/modules/med.appointment/src/entrypoint.php';
 

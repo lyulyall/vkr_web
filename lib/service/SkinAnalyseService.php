@@ -4,25 +4,21 @@ namespace med\custom\service;
 
 
 use Exception;
-use med\custom\repository\SkinAnalyzeRepository;
+use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
+use med\custom\repository\SkinAnalyseRepository;
 
 
 class SkinAnalyseService {
-	public function __construct(protected SkinAnalyzeRepository $repository) {
-	}
+	public function __construct(
+		protected SkinAnalyseRepository $repository,
+		protected AiDiagnosticHelper $ai
+	) { }
 
 	/**
 	 * @throws Exception
 	 */
-	public function add(int $userId, array $file, array $responseData): int {
-		$responseJson = json_encode(
-			$responseData,
-			JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-		);
-
-		if ($responseJson === false) {
-			throw new Exception('Не удалось сериализовать ответ нейросети');
-		}
+	public function add(int $userId, array $file, string $responseJson): int {
+		$responseData = json_decode($responseJson, true);
 
 		return $this->repository->addByData(
 			$userId,
@@ -31,6 +27,15 @@ class SkinAnalyseService {
 			$this->buildElementName($responseData)
 		);
 	}
+
+	public function checkServer(): string {
+		return $this->ai->checkServer();
+	}
+
+	public function AnalyseSkin(array $file): string {
+		return $this->ai->AnalyseSkin($file);
+	}
+
 
 	public function getUserHistory(int $userId, int $limit = 10, int $offset = 0): array {
 		return $this->repository->getByUserId($userId, $limit, $offset);

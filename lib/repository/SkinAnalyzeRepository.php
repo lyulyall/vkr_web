@@ -8,8 +8,8 @@ use CIBlockElement;
 use Exception;
 
 
-class SkinAnalyzeRepository {
-	public function __construct(protected int $iblockId) { }
+class SkinAnalyseRepository {
+	public function __construct(protected int $iblockId = 94) { }
 
 	/**
 	 * @throws Exception

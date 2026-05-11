@@ -5,7 +5,7 @@ $arComponentDescription = array(
 	'NAME' => 'Форма диагностики кожных заболеваний',
 	'DESCRIPTION' => 'Форма диагностики кожных заболеваний. Предсказание класса изображения с вероятностью',
 	'PATH' => array(
-		'ID' => 'intervolga.skinanalyzeform',
+		'ID' => 'intervolga.skinAnalyseform',
 		'NAME' => 'Интерволга',
 	)
 );

@@ -8,9 +8,10 @@ use med\custom\integration\AiDiagnostic\AiDiagnosticHelper;
 use med\custom\repository\SymptomAnalyseRepository;
 
 
-class SymptomAnalyzeService {
-	public function __construct(protected SymptomAnalyseRepository $repository) {
-	}
+class SymptomAnalyseService {
+	public function __construct(protected SymptomAnalyseRepository $repository,
+		protected AiDiagnosticHelper $ai
+	) { }
 
 	/**
 	 * @throws Exception
@@ -24,11 +25,11 @@ class SymptomAnalyzeService {
 	}
 
 	public function checkServer(): string {
-		return (new AiDiagnosticHelper())->checkServer();
+		return $this->ai->checkServer();
 	}
 
-	public function analyzeSymptoms(string $symptoms): string {
-		return (new AiDiagnosticHelper())->analyzeSymptoms($symptoms);
+	public function AnalyseSymptoms(string $symptoms): string {
+		return $this->ai->AnalyseSymptoms($symptoms);
 	}
 
 	public function getUserHistory(int $userId, int $limit = 20, int $offset = 0): array {
