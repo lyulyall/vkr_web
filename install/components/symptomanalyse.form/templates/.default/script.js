@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function checkServer() {
         try {
-            const response = await fetch(PROXY_URL + '?endpoint=/health');
+            const response = await fetch(PROXY_URL + '?action=/health_check');
 
             if (!response.ok) {
                 return false;

@@ -1,6 +1,6 @@
 <?php
 
-namespace vdc\custom\entity;
+namespace med\custom\entity;
 
 
 use Bitrix\Main\Type\DateTime;

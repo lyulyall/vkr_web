@@ -1,6 +1,6 @@
 <?php
 
-namespace vdc\custom\repository;
+namespace med\custom\repository;
 
 
 use Bitrix\Highloadblock\HighloadBlockTable;

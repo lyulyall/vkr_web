@@ -1,24 +1,29 @@
 <?php
 
-namespace vdc\custom\controller;
+namespace med\custom\controller;
 
 
-use Exception;
-use vdc\custom\service\SymptomAnalyzeService;
+use med\custom\service\SymptomAnalyzeService;
 
 
 class SymptomAnalyseController {
-	public function __construct(protected SymptomAnalyzeService $service) { }
-
-	/**
-	 * @throws Exception
-	 */
-	public function add(int $userId, array $file, array $responseData): int {
-		return $this->service->add(
-			$userId,
-			$file,
-			$responseData
-		);
+	public function __construct(protected SymptomAnalyzeService $service) {
 	}
 
+	public function checkServer(): string {
+		return $this->service->checkServer();
+	}
+
+	public function analyzeSymptoms(string $symptoms): string {
+		return $this->service->analyzeSymptoms($symptoms);
+	}
+
+
+	public function saveRequestInHistory(int $userId, string $symptoms, string $responseJson): int {
+		return $this->service->add(
+			$userId,
+			$symptoms,
+			$responseJson
+		);
+	}
 }

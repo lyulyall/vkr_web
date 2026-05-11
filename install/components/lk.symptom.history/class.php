@@ -3,8 +3,8 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Web\Uri;
-use med\appointment\entity\symptomHistory\SymptomHistoryRepository;
-use med\appointment\entity\symptomHistory\SymptomHistoryService;
+use med\custom\entity\symptomHistory\SymptomHistoryRepository;
+use med\custom\entity\symptomHistory\SymptomHistoryService;
 
 defined('B_PROLOG_INCLUDED') || die;
 
